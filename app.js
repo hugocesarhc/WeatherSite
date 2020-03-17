@@ -7,9 +7,19 @@ window.addEventListener('load',()=>{
       long = position.coords.longitude;
       lat = position.coords.latitude;
       
-      const api = 'curl -i http://apiadvisor.climatempo.com.br/api/v1/weather/locale/3477/current?token=your-app-token';
-    })
-  }else{
+      const api = 'https://api.darksky.net/forecast/670c55337c3e9a86811c47ce858fc24d/${lat},${long}';
+    });
+    
+    fetch(api)
+        .then(response =>{
+            return response.json();
+        })
+        .then(data => {
+        console.log(data);
+        });
+    
+  }
+  else{
     h1.textContext = "o serviço não poderá funcionar sem conseguir acessar a localiação da sua cidade"
   }
 });

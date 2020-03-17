@@ -16,6 +16,10 @@ window.addEventListener('load',()=>{
         })
         .then(data => {
         console.log(data);
+        const { temperature, sumary} = data.currently;
+        temperatureDefree.textContent = temperature;
+        temperatureDescription.textContent = sumary;
+        locationTimezone.textContent = data.timezone;
         });
     
   }
